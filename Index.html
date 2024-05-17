@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Lookbook Website</title>
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    
+    <style>
+        /* Your CSS styles here */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('logo3.png'); /* Set the cover PNG image as the background */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Set the body to relative positioning */
+        }
+        .overlay {
+            position: absolute; /* Set the overlay to absolute positioning */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0); /* Add a semi-transparent black overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 2s ease; /* Add fade-in animation */
+        }
+        .centered {
+            text-align: center;
+            opacity: 0; /* Initially hide the content */
+            animation: slideIn 2s ease forwards; /* Add slide-in animation */
+        }
+        .centered a {
+            /* Your link styles */
+            color: rgb(255, 255, 255);
+            font-size: 16px;
+            text-decoration: none;
+            border: 2px solid transparent; /* Set initial border color to transparent */
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        .centered a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Set background color to a transparent white upon hover */
+            color: rgb(255, 0, 0); /* Change text color to black upon hover */
+            border-color: white; /* Change border color to white upon hover */
+        }
+
+        /* Keyframe animations */
+        @keyframes fadeIn {
+            from {
+                background-color: rgba(0, 0, 0, 0);
+            }
+            to {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="centered">
+            <!-- Click to enter -->
+            <a href="index1.html">Click to Enter</a>
+        </div>
+    </div>
+</body>
+</html>

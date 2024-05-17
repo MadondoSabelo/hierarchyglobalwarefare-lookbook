@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lookbook Website</title>
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://js.stripe.com/v3/"></script> <!-- Stripe JavaScript Library -->
+    <style>
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            color: black; /* Set header text color to black */
+        }
+        
+        /* Header Navbar Enhancement */
+        header nav ul li a:hover {
+    
+    color: red; /* Change text color on hover */
+    transition: color 0.3s ease; /* Add smooth transition */
+     }
+     
+        .logo {
+            /* Adjust logo size as needed */
+            width: 100px;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        nav ul li {
+            margin: 0 10px;
+            position: relative; /* Ensure relative positioning for dropdowns */
+        }
+         /* Style for links in the header */
+         header nav ul li a {
+            color: black; /* Set color of header links to black */
+        }
+        
+        nav ul li.dropdown > ul {
+            display: none;
+            position: absolute;
+            top: 100%; /* Position dropdowns below their parent items */
+            left: 0;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav ul li.dropdown:hover > ul {
+            display: block; /* Show dropdowns on hover */
+        }
+
+        nav ul li.search-button {
+            position: relative;
+        }
+
+        .search-icon {
+            cursor: pointer;
+        }
+
+        .search-popup {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-button:hover .search-popup {
+            display: block;
+        }
+        /* Donation Section Styles */
+        #donation {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        form {
+            border: 2px solid #ccc; /* Add border around the form */
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px; /* Add border radius for smoother corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.242); /* Add box shadow for depth */
+        }
+        
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        form input[type="number"],
+        #card-element {
+            width: 92.5%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #name {
+            width: 90%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border:1px solid #ccc;
+            border-radius: 5px;
+        }
+        #email {
+            width:90%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        form button {
+            background-color: #ff0000;
+            color: white; /* Set button text color to white */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Add transition for smooth hover effect */
+        }
+        
+        form button:hover {
+            background-color: #0056b3; /* Change background color on hover */
+        }
+        
+        #error-message {
+            color: red;
+            margin-top: 10px;
+        }
+        
+        /* Footer Styles */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            color: black; /* Set footer text color to black */
+            padding: 10px; /* Corrected typo */
+            text-align: center;
+            z-index: 999; /* Ensure the footer is above other content */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: black; /* Set footer link color to black */
+            margin: 0 10px;
+        }
+         /* Style for links in the header */
+         header nav ul li a {
+            color: black; /* Set color of header links to black */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="logo1.png" alt="Hierarchy Global Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Lookbook</a></li>
+                <li><a href="lookbook.html">Archives</a></li>
+                <li class="dropdown">
+                    <a href="#">Info</a>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </nav>
+    </header>  
+
+    <!-- Donation Section -->
+    <section id="donation">
+        <p>If you would like to support our work, you can donate using the form below:</p>
+        <form id="donationForm">
+            
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="amount">Amount (USD):</label>
+            <input type="number" id="amount" name="amount" min="1" step="1" required>
+
+            <label for="card">Card Information:</label>
+            <div id="card-element"></div>
+
+            <button type="submit">Donate</button>
+            <div id="error-message" role="alert"></div>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div><a href="index1.html">Hierarchy Global 2024.&copy; </a>All Rights Reserved.</div>
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Hierarchy Global Logo"></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Form Submission Handling and Stripe Integration -->
+    <script>
+        // Set your publishable key obtained from the Stripe dashboard
+        const stripe = Stripe('your_publishable_key');
+
+        // Create an instance of Elements
+        const elements = stripe.elements();
+
+        // Create an instance of the card Element
+        const card = elements.create('card');
+
+        // Add an instance of the card Element into the card-element div
+        card.mount('#card-element');
+
+        // Add an event listener to the donation form
+        document.getElementById('donationForm').addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Retrieve the amount from the form
+            const amount = document.getElementById('amount').value;
+
+            // Create a payment intent on the server
+            const response = await fetch('/create-payment-intent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ amount }),
+            });
+            const paymentIntent = await response.json();
+
+            // Confirm the card payment
+            const result = await stripe.confirmCardPayment(paymentIntent.clientSecret, {
+                payment_method: {
+                    card: card,
+                },
+            });
+
+            if (result.error) {
+                // Display an error message if the payment failed
+                const errorElement = document.getElementById('error-message');
+                errorElement.textContent = result.error.message;
+            } else {
+                // Display a success message if the payment was successful
+                alert('Payment successful!');
+            }
+        });
+    </script>
+</body>
+</html>
