@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
     <script src="audioplayback.js" defer></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- EmailJS SDK -->
     <style>
         body {
             margin: 0;
@@ -192,7 +193,7 @@
     <!-- Contact Form Section -->
     <section id="contact">
         <h2>Contact Us</h2>
-        <form action="contact.php" method="post">
+        <form id="contact-form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
@@ -201,9 +202,10 @@
             <textarea id="message" name="message" rows="5" required></textarea>
             <button type="submit">Send</button>
         </form>
+        <div id="error-message"></div>
     </section>
 
-    <!-- Footer -->
+
     <footer>
         <div>&copy; <a href="index.html">Hierarchy Global 2024.</a> All Rights Reserved. Airmoyen Web Wizards</div>
         <div class="logo">
@@ -218,17 +220,25 @@
         Your browser does not support the audio element.
     </audio>
 
-    <!-- JavaScript for Search Functionality -->
+  
     <script>
-        document.addEventListener('click', function() {
-            document.getElementById('bg-music').muted = false;
-        });
+        (function() {
+            emailjs.init("X076cJRWU__5vV-c2"); // Replace with your EmailJS user ID
+        })();
 
-        const searchButton = document.querySelector('.search-button');
-        const searchPopup = document.querySelector('.search-popup');
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-        searchButton.addEventListener('click', function() {
-            searchPopup.style.display = (searchPopup.style.display === 'block') ? 'none' : 'block';
+            const serviceID = "service_9qa06xn" ; // Replace with your EmailJS service ID
+            const templateID = "template_4dtyig6"; // Replace with your EmailJS template ID
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    alert('Your message has been sent successfully!');
+                    document.getElementById('contact-form').reset();
+                }, (err) => {
+                    document.getElementById('error-message').innerText = JSON.stringify(err);
+                });
         });
     </script>
 </body>
