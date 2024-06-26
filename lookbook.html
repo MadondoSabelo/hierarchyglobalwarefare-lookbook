@@ -90,6 +90,7 @@
         .image-grid img {
             max-width: 100%;
             height: auto;
+            display: block;
         }
         .lightbox {
             display: none;
@@ -151,27 +152,27 @@
             <h1>SHOWROOM 24</h1>
             <div class="image-grid">
                 <a href="images/vest hood 2.jpg" class="lightbox-trigger" data-description="Retail @R400">
-                    <img src="images/vest hood 1.jpg" alt="Product 1">
+                    <img src="images/vest hood 1.jpg" alt="Product 1" loading="lazy">
                 </a>
                 <a href="images/vest 1.jpg" class="lightbox-trigger" data-description="Retail @R300">
-                    <img src="images/vest 2.jpg" alt="Product 2">
+                    <img src="images/vest 2.jpg" alt="Product 2" loading="lazy">
 
                     <a href="images/vest 4.jpg" class="lightbox-trigger" data-description="Retail @R300">
-                        <img src="images/vest 3.jpg" alt="Product 5">
+                        <img src="images/vest 3.jpg" alt="Product 5" loading="lazy">
                     </a>
                 </a>
                 <a href="images/sweater 2.jpg" class="lightbox-trigger" data-description="Retail @500">
-                    <img src="images/sweater 1.jpg" alt="Product 3">
+                    <img src="images/sweater 1.jpg" alt="Product 3" loading="lazy">
                 </a>
                 <a href="images/sweater 4.jpg" class="lightbox-trigger" data-description="Retail @R500">
-                    <img src="images/sweater 3.jpg" alt="Product 4">
+                    <img src="images/sweater 3.jpg" alt="Product 4" loading="lazy">
                 </a>
                 
                 <a href="images/sweater 5.jpg" class="lightbox-trigger" data-description="Retail @R500">
-                    <img src="images/sweater 2.jpg" alt="Product 6">
+                    <img src="images/sweater 2.jpg" alt="Product 6" loading="lazy">
                 </a>
                 <a href="images/cock 1.jpg" class="lightbox-trigger" data-description="Retail @R350">
-                    <img src="images/cock 2.jpg" alt="Product 7">
+                    <img src="images/cock 2.jpg" alt="Product 7" loading="lazy">
                 </a>
             </div>
         </section>
@@ -228,25 +229,4 @@
             });
 
             lightbox.addEventListener('click', event => {
-                if (event.target === lightbox) {
-                    lightbox.style.display = 'none';
-                }
-            });
-
-            document.addEventListener('keydown', event => {
-                if (lightbox.style.display === 'flex') {
-                    if (event.key === 'ArrowRight') {
-                        currentImageIndex = (currentImageIndex + 1) % images.length;
-                        showImage(currentImageIndex);
-                    } else if (event.key === 'ArrowLeft') {
-                        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-                        showImage(currentImageIndex);
-                    } else if (event.key === 'Escape') {
-                        lightbox.style.display = 'none';
-                    }
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                if (event.target === lightbox)
