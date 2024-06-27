@@ -45,12 +45,13 @@
         header nav ul li.dropdown > ul {
             display: none;
             position: absolute;
-            top: 100%;
-            left: 0;
+            top: 0;
+            left: 100%;
             background-color: #fff;
             padding: 10px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
         }
         header nav ul li.dropdown:hover > ul {
             display: block;
@@ -295,4 +296,15 @@
                     event.preventDefault();
                     currentImageIndex = index;
                     showImage(currentImageIndex);
+                });
+            });
 
+            lightbox.addEventListener('click', event => {
+                if (event.target === lightbox || event.target === lightboxImg) {
+                    lightbox.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
