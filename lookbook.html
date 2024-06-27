@@ -82,14 +82,27 @@
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
         }
-        .image-grid a {
-            display: block;
-            text-decoration: none;
-            color: #333;
+        .image-grid .item {
+            position: relative;
         }
         .image-grid img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
+            display: block;
+        }
+        .description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            display: none;
+        }
+        .image-grid .item:hover .description {
             display: block;
         }
         .lightbox {
@@ -110,30 +123,32 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-        }
-        .lightbox img {
             max-width: 80%;
             max-height: 80%;
         }
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+        }
         .product-description {
-            max-width: 80%;
             margin-top: 20px;
             padding: 10px;
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
+            max-width: 100%;
+            overflow-y: auto;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="index.html"><img src="images/logo1.png" alt="Hierarchy Global Logo"></a>
+            <a href="index"><img src="images/logo1.png" alt="Hierarchy Global Logo"></a>
         </div>
         <nav>
             <ul>
-              
                 <li><a href="lookbook">LOOKBOOK</a></li>
                 <li class="dropdown">
                     <a href="about">Info</a>
@@ -151,29 +166,83 @@
         <section id="gallery">
             <h1>SHOWROOM 24</h1>
             <div class="image-grid">
-                <a href="images/vest hood 2.jpg" class="lightbox-trigger" data-description="Retail @R400">
-                    <img src="images/vest hood 1.jpg" alt="Product 1" loading="lazy">
-                </a>
-                <a href="images/vest 1.jpg" class="lightbox-trigger" data-description="Retail @R300">
-                    <img src="images/vest 2.jpg" alt="Product 2" loading="lazy">
-
-                    <a href="images/vest 4.jpg" class="lightbox-trigger" data-description="Retail @R300">
-                        <img src="images/vest 3.jpg" alt="Product 5" loading="lazy">
+                <div class="item">
+                    <a href="images/vest hood 2.jpg" class="lightbox-trigger" data-description="Retail @R400">
+                        <img src="images/vest hood 1.jpg" alt="Vest Hood" loading="lazy">
                     </a>
-                </a>
-                <a href="images/sweater 2.jpg" class="lightbox-trigger" data-description="Retail @500">
-                    <img src="images/sweater 1.jpg" alt="Product 3" loading="lazy">
-                </a>
-                <a href="images/sweater 4.jpg" class="lightbox-trigger" data-description="Retail @R500">
-                    <img src="images/sweater 3.jpg" alt="Product 4" loading="lazy">
-                </a>
-                
-                <a href="images/sweater 5.jpg" class="lightbox-trigger" data-description="Retail @R500">
-                    <img src="images/sweater 2.jpg" alt="Product 6" loading="lazy">
-                </a>
-                <a href="images/cock 1.jpg" class="lightbox-trigger" data-description="Retail @R350">
-                    <img src="images/cock 2.jpg" alt="Product 7" loading="lazy">
-                </a>
+                    <div class="description">
+                        <p>Item: Vest Hood</p>
+                        <p>Size: M</p>
+                        <p>Price: R400</p>
+                        <p>Unique: 1 of 1</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="images/vest 1.jpg" class="lightbox-trigger" data-description="Retail @R300">
+                        <img src="images/vest 2.jpg" alt="Vest" loading="lazy">
+                    </a>
+                    <div class="description">
+                        <p>Item: Vest</p>
+                        <p>Size: S</p>
+                        <p>Price: R300</p>
+                        <p>Unique: 1 of 1</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="images/vest 4.jpg" class="lightbox-trigger" data-description="Retail @R300">
+                        <img src="images/vest 3.jpg" alt="Vest" loading="lazy">
+                    </a>
+                    <div class="description">
+                        <p>Item: Vest</p>
+                        <p>Size: L</p>
+                        <p>Price: R300</p>
+                        <p>Unique: 1 of 1</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="images/sweater 2.jpg" class="lightbox-trigger" data-description="Retail @R500">
+                        <img src="images/sweater 1.jpg" alt="Sweater" loading="lazy">
+                    </a>
+                    <div class="description">
+                        <p>Item: Sweater</p>
+                        <p>Size: M</p>
+                        <p>Price: R500</p>
+                        <p>Unique: 1 of 1</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="images/sweater 4.jpg" class="lightbox-trigger" data-description="Retail @R500">
+                        <img src="images/sweater 3.jpg" alt="Sweater" loading="lazy">
+                    </a>
+                    <div class="description">
+                        <p>Item: Sweater</p>
+                        <p>Size: L</p>
+                        <p>Price: R500</p>
+                        <p>Unique: 1 of 1</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="images/sweater 5.jpg" class="lightbox-trigger" data-description="Retail @R500">
+                        <img src="images/sweater 2.jpg" alt="Sweater" loading="lazy">
+                    </a>
+                    <div class="description">
+                        <p>Item: Sweater</p>
+                        <p>Size: XL</p>
+                        <p>Price: R500</p>
+                        <p>Unique: 1 of 1</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="images/cock 1.jpg" class="lightbox-trigger" data-description="Retail @R350">
+                        <img src="images/cock 2.jpg" alt="Cock" loading="lazy">
+                    </a>
+                    <div class="description">
+                        <p>Item: Cock</p>
+                        <p>Size: M</p>
+                        <p>Price: R350</p>
+                        <p>Unique: 1 of 1</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -211,12 +280,13 @@
 
             const images = Array.from(lightboxTriggers).map(trigger => ({
                 src: trigger.getAttribute('href'),
-                description: trigger.getAttribute('data-description')
+                description: trigger.querySelector('.description').innerHTML
             }));
 
             function showImage(index) {
                 lightboxImg.setAttribute('src', images[index].src);
-                productDescription.textContent = images[index].description;
+                productDescription.innerHTML = images[index].description;
+                lightbox.style.display = 'flex';
             }
 
             lightboxTriggers.forEach((trigger, index) => {
@@ -224,9 +294,15 @@
                     event.preventDefault();
                     currentImageIndex = index;
                     showImage(currentImageIndex);
-                    lightbox.style.display = 'flex';
                 });
             });
 
             lightbox.addEventListener('click', event => {
-                if (event.target === lightbox)
+                if (event.target === lightbox || event.target === lightboxImg) {
+                    lightbox.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
