@@ -87,7 +87,8 @@
         }
         .image-grid img {
             width: 100%;
-            height: auto;
+            height: 300px; /* Set a fixed height for all images */
+            object-fit: cover; /* Ensure images cover the area without distortion */
             display: block;
         }
         .description {
@@ -294,15 +295,4 @@
                     event.preventDefault();
                     currentImageIndex = index;
                     showImage(currentImageIndex);
-                });
-            });
 
-            lightbox.addEventListener('click', event => {
-                if (event.target === lightbox || event.target === lightboxImg) {
-                    lightbox.style.display = 'none';
-                }
-            });
-        });
-    </script>
-</body>
-</html>
