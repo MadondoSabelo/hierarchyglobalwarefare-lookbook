@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showroom</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <script src="java/audioplayback.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #ffffff;
+            color: black;
+        }
+        header nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        header nav ul li {
+            margin: 0 10px;
+            position: relative;
+        }
+        header nav ul li a {
+            color: black;
+            text-decoration: none;
+        }
+        header nav ul li a:hover {
+            color: red;
+            transition: color 0.3s ease;
+        }
+        header .logo img {
+            width: 100px;
+        }
+        footer {
+            background-color: #ffffff;
+            color: black;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+        }
+        footer a {
+            text-decoration: none;
+            color: black;
+            margin: 0 10px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .gallery-item {
+            flex: 1 0 21%; /* responsive design */
+            margin: 10px;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px; /* fixed height */
+            object-fit: cover; /* ensure image fits in the box */
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-item p {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #333;
+        }
+        @media (max-width: 600px) {
+            .gallery-item {
+                flex: 1 0 46%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index"><img src="images/logo1.png" alt="Hierarchy Global Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="lookbook">LOOKBOOK</a></li>
+                <li><a href="about">Info</a></li>
+                <li><a href="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="showroom">
+            <h1>SHOWROOM 24</h1>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img srcset="images/vest hood 1-400.jpg 400w, images/vest hood 1-800.jpg 800w, images/vest hood 1-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/vest hood 1.jpg" alt="Vest Hood" loading="lazy">
+                    <p>Vest Hood</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/vest hood 1-400.jpg 400w, images/vest hood 1-800.jpg 800w, images/vest hood 1-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/vest hood 2.jpg" alt="Vest Hood" loading="lazy">
+                    <p>Vest Hood</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/vest 2-400.jpg 400w, images/vest 2-800.jpg 800w, images/vest 2-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/vest 2.jpg" alt="Vest" loading="lazy">
+                    <p>Vest</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/vest 2-400.jpg 400w, images/vest 2-800.jpg 800w, images/vest 2-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/vest 3.jpg" alt="Vest" loading="lazy">
+                    <p>Vest</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/vest 2-400.jpg 400w, images/vest 2-800.jpg 800w, images/vest 2-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/vest 4.jpg" alt="Vest" loading="lazy">
+                    <p>Vest</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/vest 2-400.jpg 400w, images/vest 2-800.jpg 800w, images/vest 2-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/vest 1.jpg" alt="Vest" loading="lazy">
+                    <p>Vest</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/sweater 4-400.jpg 400w, images/sweater 4-800.jpg 800w, images/sweater 4-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/sweater 4.jpg" alt="Sweater" loading="lazy">
+                    <p>Sweater</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/sweater 4-400.jpg 400w, images/sweater 4-800.jpg 800w, images/sweater 4-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/sweater 3.jpg" alt="Sweater" loading="lazy">
+                    <p>Sweater</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/sweater 4-400.jpg 400w, images/sweater 4-800.jpg 800w, images/sweater 4-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/sweater 5.jpg" alt="Sweater" loading="lazy">
+                    <p>Sweater</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/sweater 4-400.jpg 400w, images/sweater 4-800.jpg 800w, images/sweater 4-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/sweater 2.jpg" alt="Sweater" loading="lazy">
+                    <p>Sweater</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/cock 1-400.jpg 400w, images/cock 1-800.jpg 800w, images/cock 1-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/cock 1.jpg" alt="Cock" loading="lazy">
+                    <p>Cock</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/cock 1-400.jpg 400w, images/cock 1-800.jpg 800w, images/cock 1-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/cock 2.jpg" alt="Cock" loading="lazy">
+                    <p>Cock</p>
+                </div>
+                <!-- Add more gallery items here as needed -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>&copy; <a href="index">Hierarchy Global 2024.</a> All Rights Reserved. Airmoyen Web Wizards</div>
+        <div class="logo">
+            <a href="index"><img src="images/logo.png" alt="Hierarchy Global Logo"></a>
+        </div>
+    </footer>
+</body>
+</html>
