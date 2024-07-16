@@ -82,10 +82,13 @@
         .carousel-item {
             min-width: 100%;
             transition: transform 0.5s ease;
-            display: flex;
+            display: none; /* Hide all items initially */
             justify-content: center;
             align-items: center;
             position: relative;
+        }
+        .carousel-item.active {
+            display: flex; /* Show the active item */
         }
         .carousel img {
             width: 100%;
@@ -171,7 +174,7 @@
         <section id="gallery">
             <h1>SHOWROOM 24</h1>
             <div class="carousel">
-                <div class="carousel-item">
+                <div class="carousel-item active">
                     <a href="images/vest%20hood%202.jpg" class="lightbox-trigger" data-description="Retail @R400">
                         <img src="images/vest%20hood%201.jpg" alt="Vest Hood">
                     </a>
@@ -275,14 +278,11 @@
         });
 
         function updateCarousel() {
-            const translateValue = -currentIndex * 100 + '%';
-            carousel.style.transform = `translateX(${translateValue})`;
-
             carouselItems.forEach((item, index) => {
                 if (index === currentIndex) {
-                    item.style.display = 'block';
+                    item.classList.add('active');
                 } else {
-                    item.style.display = 'none';
+                    item.classList.remove('active');
                 }
             });
         }
@@ -297,3 +297,4 @@
     </audio>
 </body>
 </html>
+
