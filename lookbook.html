@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lookbook Website</title>
+    <title>Showroom</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
-    <script src="script.js"></script>
     <script src="java/audioplayback.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <style>
         body {
             margin: 0;
@@ -42,20 +43,6 @@
             color: red;
             transition: color 0.3s ease;
         }
-        header nav ul li.dropdown > ul {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 100%;
-            background-color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 9999;
-        }
-        header nav ul li.dropdown:hover > ul {
-            display: block;
-        }
         header .logo img {
             width: 100px;
         }
@@ -75,72 +62,52 @@
             margin: 0 10px;
         }
         .gallery {
-            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             padding: 20px;
         }
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        .image-grid .item {
-            position: relative;
-        }
-        .image-grid img {
-            width: 100%;
-            height: 300px; /* Set a fixed height for all images */
-            object-fit: cover; /* Ensure images cover the area without distortion */
-            display: block;
-        }
-        .description {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 10px;
-            box-sizing: border-box;
+        .gallery-item {
+            flex: 1 0 21%;
+            margin: 10px;
             text-align: center;
-            display: none;
-        }
-        .image-grid .item:hover .description {
-            display: block;
-        }
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .lightbox-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            max-width: 80%;
-            max-height: 80%;
-        }
-        .lightbox img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-        .product-description {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #fff;
+            background-color: #f9f9f9;
             border-radius: 5px;
+            overflow: hidden;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 100%;
-            overflow-y: auto;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-item p {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #333;
+        }
+        @media (max-width: 900px) {
+            .gallery-item {
+                flex: 1 0 46%;
+            }
+        }
+        @media (max-width: 600px) {
+            .gallery-item {
+                flex: 1 0 100%;
+            }
+        }
+        .showroom-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
         }
     </style>
 </head>
@@ -152,125 +119,143 @@
         <nav>
             <ul>
                 <li><a href="lookbook">LOOKBOOK</a></li>
-                 <li><a href="about">Info</a></li>
-                 <li><a href="contact">Contact</a></li>
-                </li>
+                <li><a href="about">Info</a></li>
+                <li><a href="contact">Contact</a></li>
             </ul>
         </nav>
-    </header>  
-
+    </header>
     <main>
-        <!-- Gallery Section -->
-        <section id="gallery">
+        <section id="showroom">
+                <h1>HIERACHYGLOBAL WARFARE</h1>
+               
             <h1>SHOWROOM 24</h1>
-            <div class="image-grid">
-                <div class="item">
-                    <a href="images/vest hood 2.jpg" class="lightbox-trigger" data-description="Retail @R400">
-                        <img src="images/vest hood 1.jpg" alt="Vest Hood" loading="lazy">
-                    </a>
-                    <div class="description">
-                        <p>Item: Vest Hood</p>
-                        <p>Size: M</p>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img srcset="images/vest hood 1-400.jpg 400w, images/vest hood 1-800.jpg 800w, images/vest hood 1-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/vest hood 1.jpg" alt="Vest Hood" loading="lazy">
+                    <p>Vest Hood</p>
+                    <p>Size: M</p>
                         <p>Price: R400</p>
                         <p>Unique: 1 of 1</p>
-                    </div>
                 </div>
-               
-                <div class="item">
-                    <a href="images/vest 3.jpg" class="lightbox-trigger" data-description="Retail @R300">
-                        <img src="images/vest 2.jpg" alt="Vest" loading="lazy">
-                    </a>
-                    <div class="description">
-                        <p>Item: Vest</p>
-                        <p>Size: L</p>
-                        <p>Price: R300</p>
+                <div class="gallery-item">
+                    <img srcset="images/vest hood 1-400.jpg 400w, images/vest hood 1-800.jpg 800w, images/vest hood 1-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/vest hood 2.jpg" alt="Vest Hood" loading="lazy">
+                    <p>Vest Hood</p>
+                    <p>Size: M</p>
+                        <p>Price: R400</p>
                         <p>Unique: 1 of 1</p>
-                    </div>
-                
                 </div>
-                <div class="item">
-                    <a href="images/sweater 1.jpg" class="lightbox-trigger" data-description="Retail @R500">
-                        <img src="images/sweater 4.jpg" alt="Sweater" loading="lazy">
-                    </a>
-                    <div class="description">
-                        <p>Item: Sweater</p>
-                        <p>Size: L</p>
-                        <p>Price: R500</p>
-                        <p>Unique: 1 of 1</p>
-                    </div>
+                <div class="gallery-item">
+                    <img srcset="images/vest 2-400.jpg 400w, images/vest 2-800.jpg 800w, images/vest 2-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/vest 2.jpg" alt="Vest" loading="lazy">
+                    <p>Vest</p>
+                    <p>Size: L</p>
+                    <p>Price: R300</p>
+                    <p>Unique: 1 of 1</p>
                 </div>
-              
-                <div class="item">
-                    <a href="images/cock 2.jpg" class="lightbox-trigger" data-description="Retail @R350">
-                        <img src="images/cock 1.jpg" alt="Cock" loading="lazy">
-                    </a>
-                    <div class="description">
-                        <p>Item: Cock</p>
+                <div class="gallery-item">
+                    <img srcset="images/vest 2-400.jpg 400w, images/vest 2-800.jpg 800w, images/vest 2-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/vest 3.jpg" alt="Vest" loading="lazy">
+                         <p>Item: Vest</p>
+                         <p>Size: L</p>
+                         <p>Price: R300</p>
+                         <p>Unique: 1 of 1</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/vest 2-400.jpg 400w, images/vest 2-800.jpg 800w, images/vest 2-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/vest 4.jpg" alt="Vest" loading="lazy">
+                         <p>Item: Vest</p>
+                         <p>Size: L</p>
+                         <p>Price: R300</p>
+                         <p>Unique: 1 of 1</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/vest 2-400.jpg 400w, images/vest 2-800.jpg 800w, images/vest 2-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/vest 1.jpg" alt="Vest" loading="lazy">
+                         <p>Item: Vest</p>
+                         <p>Size: L</p>
+                         <p>Price: R300</p>
+                         <p>Unique: 1 of 1</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/sweater 4-400.jpg 400w, images/sweater 4-800.jpg 800w, images/sweater 4-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/sweater 4.jpg" alt="Sweater" loading="lazy">
+                         <p>Item: Sweater</p>
+                         <p>Size: L</p>
+                         <p>Price: R500</p>
+                         <p>Unique: 1 of 1</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/sweater 4-400.jpg 400w, images/sweater 4-800.jpg 800w, images/sweater 4-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/sweater 3.jpg" alt="Sweater" loading="lazy">
+                         <p>Item: Sweater</p>
+                         <p>Size: L</p>
+                         <p>Price: R500</p>
+                         <p>Unique: 1 of 1</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/sweater 4-400.jpg 400w, images/sweater 4-800.jpg 800w, images/sweater 4-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/sweater 5.jpg" alt="Sweater" loading="lazy">
+                         <p>Item: Sweater</p>
+                         <p>Size: L</p>
+                         <p>Price: R500</p>
+                         <p>Unique: 1 of 1</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/sweater 4-400.jpg 400w, images/sweater 4-800.jpg 800w, images/sweater 4-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/sweater 2.jpg" alt="Sweater" loading="lazy">
+                         <p>Item: Sweater</p>
+                         <p>Size: L</p>
+                         <p>Price: R500</p>
+                         <p>Unique: 1 of 1</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/cock 1-400.jpg 400w, images/cock 1-800.jpg 800w, images/cock 1-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/cock 1.jpg" alt="Cock" loading="lazy">
+                         <p>Item: EC tee</p>
+                         <p>Size: M</p>
+                         <p>Price: R350</p>
+                         <p>Unique: 1 of 1</p>
+                </div>
+                <div class="gallery-item">
+                    <img srcset="images/cock 1-400.jpg 400w, images/cock 1-800.jpg 800w, images/cock 1-1200.jpg 1200w"
+                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                         src="images/cock 2.jpg" alt="Cock" loading="lazy">
+                         <p>Item: EC tee</p>
                         <p>Size: M</p>
                         <p>Price: R350</p>
                         <p>Unique: 1 of 1</p>
-                    </div>
-                </div>
+                <!-- Add more gallery items here as needed -->
             </div>
+            
         </section>
+        <div><button class="showroom-button" onclick="location.href='showroom.html'">Showroom</button></div>
+       
     </main>
-
-    <!-- Lightbox -->
-    <div class="lightbox">
-        <div class="lightbox-content">
-            <img src="" alt="" class="lightbox-img">
-            <div class="product-description"></div>
-        </div>
-    </div>
-
-    <!-- Footer -->
+                 
+       
     <footer>
         <div>&copy; <a href="index">Hierarchy Global 2024.</a> All Rights Reserved. Airmoyen Web Wizards</div>
         <div class="logo">
             <a href="index"><img src="images/logo.png" alt="Hierarchy Global Logo"></a>
         </div>
     </footer>
-
     <!-- Background Music -->
     <audio autoplay loop>
-        <source src="background-music.mp3" type="audio/mpeg">
+        <source src="audio/background-music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-
-    <!-- JavaScript for Lightbox Functionality -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
-            const lightbox = document.querySelector('.lightbox');
-            const lightboxImg = document.querySelector('.lightbox-img');
-            const productDescription = document.querySelector('.product-description');
-            let currentImageIndex = 0;
-
-            const images = Array.from(lightboxTriggers).map(trigger => ({
-                src: trigger.getAttribute('href'),
-                description: trigger.querySelector('.description').innerHTML
-            }));
-
-            function showImage(index) {
-                lightboxImg.setAttribute('src', images[index].src);
-                productDescription.innerHTML = images[index].description;
-                lightbox.style.display = 'flex';
-            }
-
-            lightboxTriggers.forEach((trigger, index) => {
-                trigger.addEventListener('click', event => {
-                    event.preventDefault();
-                    currentImageIndex = index;
-                    showImage(currentImageIndex);
-                });
-            });
-
-            lightbox.addEventListener('click', event => {
-                if (event.target === lightbox || event.target === lightboxImg) {
-                    lightbox.style.display = 'none';
-                }
-            });
-        });
-    </script>
 </body>
 </html>

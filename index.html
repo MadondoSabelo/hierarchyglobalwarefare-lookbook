@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome - Lookbook Website</title>
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
-    
     <style>
-        /* Your CSS styles here */
         body {
             margin: 0;
             padding: 0;
@@ -26,7 +24,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0); /* Add a semi-transparent black overlay */
+            background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent black overlay */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -38,9 +36,8 @@
             animation: slideIn 2s ease forwards; /* Add slide-in animation */
         }
         .centered a {
-            /* Your link styles */
             color: rgb(255, 255, 255);
-            font-size: 16px;
+            font-size: 18px;
             text-decoration: none;
             border: 2px solid transparent; /* Set initial border color to transparent */
             padding: 10px 20px;
@@ -48,7 +45,7 @@
         }
         .centered a:hover {
             background-color: rgba(255, 255, 255, 0.2); /* Set background color to a transparent white upon hover */
-            color: rgb(255, 0, 0); /* Change text color to black upon hover */
+            color: rgb(255, 0, 0); /* Change text color to red upon hover */
             border-color: white; /* Change border color to white upon hover */
         }
 
@@ -78,8 +75,9 @@
     <div class="overlay">
         <div class="centered">
             <!-- Click to enter -->
-            <a href="lookbook">Click to Enter</a>
+            <a href="lookbook" id="enterButton">Click to Enter</a>
         </div>
     </div>
+    <script src="audioplayback.js"></script>
 </body>
 </html>
