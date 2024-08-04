@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
     <style>
+        
+        
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -117,7 +119,7 @@
             cursor: pointer;
             text-transform: uppercase;
         }
-       
+
         @media (max-width: 900px) {
             .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -129,15 +131,15 @@
             }
         }
 
-        /* Override Lightbox2 styles */
+      
         .lightboxOverlay {
             background-color: rgba(0, 0, 0, 0.8); /* Change overlay background color */
         }
 
         .lb-data .lb-caption {
-            color: #fff; /* Change caption text color */
-            font-size: 1.2rem; /* Adjust font size */
-            text-align: center; /* Center-align caption text */
+            color: #fff; 
+            font-size: 1.2rem; 
+            text-align: center; 
         }
     </style>
 </head>
@@ -163,106 +165,151 @@
                 <button onclick="filterGallery('all')">All</button>
                 <button onclick="filterGallery('vest')">Vests</button>
                 <button onclick="filterGallery('sweater')">Sweaters</button>
+                <button onclick="filterGallery('T-shirts')">T-shirts</button>
             </div>
 
             <div class="gallery">
                 <div class="gallery-item" data-category="vest">
-                    <img srcset="images/vest hood 1-400.png 400w, images/vest hood 1-800.png 800w, images/vest hood 1-1200.png 1200w"
-                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
-                         src="images/vest hood 1.png" alt="Vest Hood" loading="lazy">
+                    <a href="images/vest hood 1.png" data-lightbox="gallery" data-title="Vest Hood - Size: M, Price: R400, Unique: 1 of 1">
+                        <img srcset="images/vest hood 1-400.png 400w, images/vest hood 1-800.png 800w, images/vest hood 1-1200.png 1200w"
+                             sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                             src="images/vest hood 1.png" alt="Vest Hood" loading="lazy">
+                    </a>
                     <p>Vest Hood</p>
                     <p>Size: M</p>
                     <p>Price: R400</p>
                     <p>Unique: 1 of 1</p>
                 </div>
                 <div class="gallery-item" data-category="vest">
-                    <img srcset="images/vest hood 1-400.png 400w, images/vest hood 1-800.png 800w, images/vest hood 1-1200.png 1200w"
-                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
-                         src="images/vest hood 2.png" alt="Vest Hood" loading="lazy">
+                    <a href="images/vest hood 2.png" data-lightbox="gallery" data-title="Vest Hood - Size: M, Price: R400, Unique: 1 of 1">
+                        <img srcset="images/vest hood 1-400.png 400w, images/vest hood 1-800.png 800w, images/vest hood 1-1200.png 1200w"
+                             sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                             src="images/vest hood 2.png" alt="Vest Hood" loading="lazy">
+                    </a>
                     <p>Vest Hood</p>
                     <p>Size: M</p>
                     <p>Price: R400</p>
                     <p>Unique: 1 of 1</p>
                 </div>
+                <div class="gallery-item" data-category="T-shirts">
+                    <a href="images/cock 1.png" data-lightbox="gallery" data-title="T-shirt - Size: M, Price: R350, Unique: 1 of 1">
+                        <img srcset="images/cock 1-400.png 400w, images/cock 1-800.png 800w, images/cock 1-1200.png 1200w"
+                             sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                             src="images/cock 1.png" alt="EC Tee" loading="lazy">
+                    </a>
+                    <p>Item: EC tee</p>
+                    <p>Size: M</p>
+                    <p>Price: R350</p>
+                    <p>Unique: 1 of 1</p>
+                </div>
+                <div class="gallery-item" data-category="T-shirts">
+                    <a href="images/cock 2.png" data-lightbox="gallery" data-title="T-shirt - Size: M, Price: R350, Unique: 1 of 1">
+                        <img srcset="images/cock 2-400.png 400w, images/cock 2-800.png 800w, images/cock 2-1200.png 1200w"
+                             sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                             src="images/cock 2.png" alt="EC Tee" loading="lazy">
+                    </a>
+                    <p>Item: EC tee</p>
+                    <p>Size: M</p>
+                    <p>Price: R350</p>
+                    <p>Unique: 1 of 1</p>
+                </div>
                 <div class="gallery-item" data-category="vest">
-                    <img srcset="images/vest 2-400.png 400w, images/vest 2-800.png 800w, images/vest 2-1200.png 1200w"
-                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
-                         src="images/vest 2.png" alt="Vest" loading="lazy">
+                    <a href="images/vest 2.png" data-lightbox="gallery" data-title="Vest - Size: L, Price: R300, Unique: 1 of 1">
+                        <img srcset="images/vest 2-400.png 400w, images/vest 2-800.png 800w, images/vest 2-1200.png 1200w"
+                             sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                             src="images/vest 2.png" alt="Vest" loading="lazy">
+                    </a>
                     <p>Vest</p>
                     <p>Size: L</p>
                     <p>Price: R300</p>
                     <p>Unique: 1 of 1</p>
                 </div>
                 <div class="gallery-item" data-category="vest">
-                    <img srcset="images/vest 2-400.png 400w, images/vest 2-800.png 800w, images/vest 2-1200.png 1200w"
-                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
-                         src="images/vest 3.png" alt="Vest" loading="lazy">
+                    <a href="images/vest 3.png" data-lightbox="gallery" data-title="Vest - Size: L, Price: R300, Unique: 1 of 1">
+                        <img srcset="images/vest 3-400.png 400w, images/vest 3-800.png 800w, images/vest 2-1200.png 1200w"
+                             sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                             src="images/vest 3.png" alt="Vest" loading="lazy">
+                    </a>
                     <p>Vest</p>
                     <p>Size: L</p>
                     <p>Price: R300</p>
                     <p>Unique: 1 of 1</p>
                 </div>
                 <div class="gallery-item" data-category="vest">
-                    <img srcset="images/vest 1-400.png 400w, images/vest 1-800.png 800w, images/vest 1-1200.png 1200w"
-                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
-                         src="images/vest 1.png" alt="Vest" loading="lazy">
+                    <a href="images/vest 4.png" data-lightbox="gallery" data-title="Vest - Size: M, Price: R300, Unique: 1 of 1">
+                        <img srcset="images/vest 2-400.png 400w, images/vest 2-800.png 800w, images/vest 2-1200.png 1200w"
+                             sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                             src="images/vest 4.png" alt="Vest" loading="lazy">
+                    </a>
                     <p>Vest</p>
-                    <p>Size: L</p>
+                    <p>Size: M</p>
                     <p>Price: R300</p>
                     <p>Unique: 1 of 1</p>
                 </div>
                 <div class="gallery-item" data-category="vest">
-                    <img srcset="images/vest 2-400.png 400w, images/vest 2-800.png 800w, images/vest 2-1200.png 1200w"
-                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
-                         src="images/vest 4.png" alt="Vest" loading="lazy">
+                    <a href="images/vest 1.png" data-lightbox="gallery" data-title="Vest - Size: L, Price: R300, Unique: 1 of 1">
+                        <img srcset="images/vest 1-400.png 400w, images/vest 1-800.png 800w, images/vest 1-1200.png 1200w"
+                             sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                             src="images/vest 1.png" alt="Vest" loading="lazy">
+                    </a>
                     <p>Vest</p>
                     <p>Size: L</p>
                     <p>Price: R300</p>
                     <p>Unique: 1 of 1</p>
                 </div>
                 <div class="gallery-item" data-category="sweater">
-                    <img srcset="images/sweater 1-400.png 400w, images/sweater 1-800.png 800w, images/sweater 1-1200.png 1200w"
-                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
-                         src="images/sweater 1.png" alt="Sweater" loading="lazy">
+                    <a href="images/sweater 1.png" data-lightbox="gallery" data-title="Sweater - Size: L, Price: R300, Unique: 1 of 1">
+                        <img srcset="images/sweater 1-400.png 400w, images/sweater 1-800.png 800w, images/sweater 1-1200.png 1200w"
+                             sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                             src="images/sweater 1.png" alt="Sweater" loading="lazy">
+                    </a>
                     <p>Sweater</p>
-                    <p>Size: M</p>
-                    <p>Price: R350</p>
+                    <p>Size: L</p>
+                    <p>Price: R500</p>
                     <p>Unique: 1 of 1</p>
                 </div>
                 <div class="gallery-item" data-category="sweater">
-                    <img srcset="images/sweater 2-400.png 400w, images/sweater 2-800.png 800w, images/sweater 2-1200.png 1200w"
-                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
-                         src="images/sweater 2.png" alt="Sweater" loading="lazy">
+                    <a href="images/sweater 2.png" data-lightbox="gallery" data-title="Sweater - Size: L, Price: R300, Unique: 1 of 1">
+                        <img srcset="images/sweater 1-400.png 400w, images/sweater 1-800.png 800w, images/sweater 1-1200.png 1200w"
+                             sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                             src="images/sweater 2.png" alt="Sweater" loading="lazy">
+                    </a>
                     <p>Sweater</p>
-                    <p>Size: M</p>
-                    <p>Price: R350</p>
+                    <p>Size: L</p>
+                    <p>Price: R500</p>
                     <p>Unique: 1 of 1</p>
                 </div>
                 <div class="gallery-item" data-category="sweater">
-                    <img srcset="images/sweater 3-400.png 400w, images/sweater 3-800.png 800w, images/sweater 3-1200.png 1200w"
-                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
-                         src="images/sweater 3.png" alt="Sweater" loading="lazy">
+                    <a href="images/sweater 3.png" data-lightbox="gallery" data-title="Sweater - Size: L, Price: R300, Unique: 1 of 1">
+                        <img srcset="images/sweater 1-400.png 400w, images/sweater 1-800.png 800w, images/sweater 1-1200.png 1200w"
+                             sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                             src="images/sweater 3.png" alt="Sweater" loading="lazy">
+                    </a>
                     <p>Sweater</p>
-                    <p>Size: M</p>
-                    <p>Price: R350</p>
+                    <p>Size: L</p>
+                    <p>Price: R500</p>
                     <p>Unique: 1 of 1</p>
                 </div>
                 <div class="gallery-item" data-category="sweater">
-                    <img srcset="images/sweater 4-400.png 400w, images/sweater 4-800.png 800w, images/sweater 4-1200.png 1200w"
-                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
-                         src="images/sweater 4.png" alt="Sweater" loading="lazy">
+                    <a href="images/sweater 4.png" data-lightbox="gallery" data-title="Sweater - Size: L, Price: R300, Unique: 1 of 1">
+                        <img srcset="images/sweater 1-400.png 400w, images/sweater 1-800.png 800w, images/sweater 1-1200.png 1200w"
+                             sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                             src="images/sweater 4.png" alt="Sweater" loading="lazy">
+                    </a>
                     <p>Sweater</p>
-                    <p>Size: M</p>
-                    <p>Price: R350</p>
+                    <p>Size: L</p>
+                    <p>Price: R500</p>
                     <p>Unique: 1 of 1</p>
                 </div>
                 <div class="gallery-item" data-category="sweater">
-                    <img srcset="images/sweater 5-400.png 400w, images/sweater 5-800.png 800w, images/sweater 5-1200.png 1200w"
-                         sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
-                         src="images/sweater 5.png" alt="Sweater" loading="lazy">
+                    <a href="images/sweater 5.png" data-lightbox="gallery" data-title="Sweater - Size: L, Price: R300, Unique: 1 of 1">
+                        <img srcset="images/sweater 1-400.png 400w, images/sweater 1-800.png 800w, images/sweater 1-1200.png 1200w"
+                             sizes="(max-width: 600px) 400px, (max-width: 900px) 800px, 1200px"
+                             src="images/sweater 5.png" alt="Sweater" loading="lazy">
+                    </a>
                     <p>Sweater</p>
-                    <p>Size: M</p>
-                    <p>Price: R350</p>
+                    <p>Size: L</p>
+                    <p>Price: R500</p>
                     <p>Unique: 1 of 1</p>
                 </div>
             </div>
@@ -270,30 +317,33 @@
         </section>
     </main>
     <footer>
-        <div>&copy; <a href="index">Hierarchy Global 2024.</a> All Rights Reserved. Airmoyen Web Wizards</div>
+        <div>&copy; <a href="index.html">Hierarchy Global 2024.</a> All Rights Reserved.</div>
         <div class="logo">
-            <a href="index"><img src="images/logo.png" alt="Hierarchy Global Logo"></a>
+            <a href="index.html"><img src="images/logo.png" alt="Hierarchy Global Logo"></a>
         </div>
     </footer>
 
+    <audio id="background-music" loop>
+        <source src="audio/background_music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <script>
-        // Filter Gallery Items
         function filterGallery(category) {
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            galleryItems.forEach(item => {
-                if (category === 'all' || item.dataset.category === category) {
+            var items = document.querySelectorAll('.gallery-item');
+            items.forEach(function (item) {
+                if (category === 'all') {
                     item.style.display = 'block';
                 } else {
-                    item.style.display = 'none';
+                    item.style.display = item.getAttribute('data-category') === category ? 'block' : 'none';
                 }
             });
         }
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'albumLabel': "Image %1 of %2"
+        });
     </script>
-    
-    <audio autoplay loop>
-        <source src="audio/background-music.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
 </body>
 </html>
-
