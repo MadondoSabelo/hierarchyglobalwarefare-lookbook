@@ -3,200 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Hierarchy Global</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Lookbook Website</title>
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+     <script src="java/audioplayback.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- EmailJS SDK -->
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial, sans-serif';
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color: #f5f5f5;
-            color: #333;
         }
+
         header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 20px;
-            background-color: #fff;
+            background-color: #ffffff;
             color: black;
         }
+
         .logo img {
             width: 100px;
         }
-        header nav ul {
+
+        nav ul {
             list-style-type: none;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 0;
+            margin: 0;
         }
-        header nav ul li {
+
+        nav ul li {
             margin: 0 10px;
+            position: relative;
         }
-        header nav ul li a {
+
+        nav ul li a {
             color: black;
             text-decoration: none;
-        }
-        header nav ul li a:hover {
-            color: red;
             transition: color 0.3s ease;
         }
-        footer {
-            background-color: #fff;
-            color: black;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-            border-top: 1px solid #eaeaea;
+
+        nav ul li a:hover {
+            color: red;
         }
+
+        nav ul li.dropdown > ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul li.dropdown:hover > ul {
+            display: block;
+        }
+
+        nav ul li.search-button {
+            position: relative;
+        }
+
+        .search-icon {
+            cursor: pointer;
+        }
+
+        .search-popup {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-button:hover .search-popup {
+            display: block;
+        }
+
+        #contact {
+            text-align: center;
+            padding: 20px;
+        }
+
+        form {
+            border: 2px solid #ccc;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #ffffff3d;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 90%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff0505;
+        }
+
+        #error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            color: black;
+            padding: 10px;
+            text-align: center;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         footer a {
             text-decoration: none;
             color: black;
             margin: 0 10px;
-        }
-        footer .logo img {
-            width: 80px;
-        }
-        #about {
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: auto;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        #about h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.5em;
-            color: #222;
-        }
-        #about p {
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        #about a {
-            color: red;
-            text-decoration: none;
-        }
-        #about a:hover {
-            text-decoration: underline;
-        }
-        .section-title {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            color: #444;
-        }
-        .section-content {
-            margin-bottom: 30px;
-        }
-        .instagram-section {
-            text-align: center;
-            padding: 20px;
-        }
-        .instagram-icon {
-            font-size: 36px;
-            color: black;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        .instagram-icon:hover {
-            color: red;
-            transition: color 0.3s ease;
-        }
-        .team-section, .testimonials-section, .faq-section {
-            background-color: #fff;
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: 20px auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .team-member, .testimonial, .faq-item {
-            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="index"><img src="images/logo1.png" alt="Hierarchy Global Logo"></a>
+            <a href="index.html"><img src="images/logo1.png" alt="Hierarchy Global Logo"></a>
         </div>
         <nav>
-           <ul>
+          
+               <ul>
                 <li><a href="lookbook">LOOKBOOK</a></li>
                  <li><a href="about">Info</a></li>
                  <li><a href="contact">Contact</a></li>
+                </li>
+            </ul>
+                   
+                </li>
             </ul>
         </nav>
-    </header>
+    </header>  
 
-    <!-- About Us Section -->
-    <section id="about">
-        <h1>About Us</h1>
-        <div class="section-content">
-            <h2 class="section-title">Our Philosophy</h2>
-            <p>
-                HIERARCHY GLOBAL is an avant-garde brand, with a street and punk culture that dissolves the matrix, it is about being in control of the way you dress without following what is trending with an unorthodox style that unapologetically breaks boundaries of the traditional way to dress. 
-                Conceptual, controversial, and thought-provoking designs that challenge issues we face in real life and hypothetical head-on. We aim to be infectious by encouraging consumers to be more expressive about the way they dress and find their own personal style within our garments to set themselves apart.
-            </p>
-        </div>
-        <div class="section-content">
-            <h2 class="section-title">Our Mission</h2>
-            <p>
-                Our goal globally is to promote individualism and creativity among consumers and let them choose garments that would suit their style rather than preference based on influence and trends.
-            </p>
-        </div>
-        <div class="section-content">
-            <h2 class="section-title">Contact Us</h2>
-            <p>
-                If you have any inquiries about availability, size, or purchasing of our garments or products, please feel free to Direct Massage official page <a href="https://instagram.com/hierachyglobalglobalwarfare" target="_blank">@hierachyglobalwarfare</a>, or simply use our <a href="contact" target="_blank">contact page</a>. When leaving an order, give as much information as possible. Response may take 3-7 business days.
-            </p>
-        </div>
+    <!-- Contact Form Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <div id="error-message"></div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <h3>How can I place an order?</h3>
-            <p>You can place an order by visiting our Instagram page or using the contact form on our website.</p>
-        </div>
-        <div class="faq-item">
-            <h3>Do you offer international shipping?</h3>
-            <p>Yes, we offer international shipping. Shipping costs and times may vary based on the destination.</p>
-        </div>
-        <!-- Add more FAQs as needed -->
-    </section>
 
-    <!-- Instagram Link Section -->
-    <section class="instagram-section">
-        <a href="https://www.instagram.com/hierarchyglobalwarfare" target="_blank" class="instagram-icon">
-            <i class="fab fa-instagram"></i>
-        </a>
-    </section>
-
-    <!-- Footer -->
     <footer>
         <div>&copy; <a href="index">Hierarchy Global 2024.</a> All Rights Reserved. Airmoyen Web Wizards</div>
-        <div class="logo">
-            <a href="index"><img src="images/logo.png" alt="Hierarchy Global Logo"></a>
-        </div>
     </footer>
 
-    <!-- Background Music -->
-    <audio autoplay loop>
-        <source src="audio/background-music.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    
+  
+    <script>
+        (function() {
+            emailjs.init("X076cJRWU__5vV-c2"); // Replace with your EmailJS user ID
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const serviceID = "service_9qa06xn" ; // Replace with your EmailJS service ID
+            const templateID = "template_4dtyig6"; // Replace with your EmailJS template ID
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    alert('Your message has been sent successfully!');
+                    document.getElementById('contact-form').reset();
+                }, (err) => {
+                    document.getElementById('error-message').innerText = JSON.stringify(err);
+                });
+        });
+    </script>
+
+    
 </body>
 </html>
